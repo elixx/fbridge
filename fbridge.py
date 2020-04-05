@@ -37,7 +37,9 @@ class FBListener(Client):
         if author_id in users:
             username = users[author_id]
         else:
-            username = author_id
+            u = self.fetchUserInfo(author_id)[author_id]
+            username = u.name
+            users[author_id] = username
 
         ## Set a gateway from the thread_id
         gateway = "FBgateway"
